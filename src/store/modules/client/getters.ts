@@ -1,11 +1,11 @@
 export default {
-    getClients(state) {
-        return state.clients;
+    getClientId(state) {
+        return state.client.id;
     },
-    getConfirmedClients(state) {
-        return state.clients.filter((client: any) => client.confirmed);
+    getClientName(state) {
+        return state.client.name;
     },
-    getClientCount(state) {
-        return state.clients.length;
+    getClientStatus(state) {
+        return state.client.confirmed ? 'Confirmed' : 'Not Confirmed';
     }
 }

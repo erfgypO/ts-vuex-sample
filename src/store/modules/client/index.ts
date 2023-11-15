@@ -5,7 +5,11 @@ import mutations from "@/store/modules/client/mutations";
 export default {
     namespaced: true,
     state: {
-        clients: []
+        client: {
+            clientId: -1,
+            name: '',
+            confirmed: false
+        }
     },
     getters,
     actions,

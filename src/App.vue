@@ -6,31 +6,44 @@ export default defineComponent({
   components: {
   },
   computed: {
-    ...mapGetters('client', ['getClients', 'getConfirmedClients', 'getClientCount'])
+    ...mapGetters('client', ['getClientId', 'getClientName', 'getClientStatus'])
   },
   methods: {
-    ...mapActions('client', ['loadClients'])
+    ...mapActions('client', ['loadClient'])
   }
 })
 </script>
 
 <template>
   <main>
-    <button @click="loadClients">Load Clients</button>
+    <button @click="loadClient">Load Client</button>
+    <table>
+      <tbody>
+        <tr>
+          <th>Id</th>
+          <td>{{ getClientId }}</td>
+        </tr>
+      <tr>
+        <th>Name</th>
+        <td>{{ getClientName }}</td>
+      </tr>
+      <tr>
+        <th>Status</th>
+        <td>{{ getClientStatus }}</td>
+      </tr>
+      </tbody>
+    </table>
 
-    <h1>All clients</h1>
-    <span>Total: {{ getClientCount }}</span>
-    <ul>
-      <li v-for="client of getClients" :key="client.id">{{ client.name }}</li>
-    </ul>
-
-    <h1>Confirmed Clients</h1>
-    <ul>
-      <li v-for="client of getConfirmedClients" :key="client.id">{{ client.name }}</li>
-    </ul>
   </main>
 </template>
 
 <style scoped>
+th {
+  text-align: left;
+  font-weight: bolder;
+}
 
+td {
+  text-align: right;
+}
 </style>
